@@ -7,6 +7,7 @@ export const defaultOrder = [
   'link',
   'tab',
   'bookmark',
+  'hatebu',
   'history',
   'command',
 ];
@@ -53,11 +54,21 @@ const enabledCJKMove = (state = false, action) => {
   }
 };
 
+const hatenaUserName = (state = false, action) => {
+  switch (action.type) {
+  case 'HATENA_USER_NAME':
+    return action.payload;
+  default:
+    return state;
+  }
+};
+
 const rootReducer = combineReducers({
   popupWidth,
   orderOfCandidates,
   maxResultsForEmpty,
   enabledCJKMove,
+  hatenaUserName,
 });
 
 export default rootReducer;
